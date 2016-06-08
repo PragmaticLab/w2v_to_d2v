@@ -9,5 +9,5 @@ To do:
 * do doc vectors always converge to the same thing? 
 
 Updates:
-June 7, 2016 - Got an initial version working, results in word_to_doc_results.txt
+* June 7, 2016 - Got an initial version working, results in result_word_to_doc.txt
 

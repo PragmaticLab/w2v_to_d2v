@@ -48,7 +48,7 @@ class LabeledLineSentence(object):
 sources = {'data/train-neg.txt':'TRAIN_NEG', 'data/train-pos.txt':'TRAIN_POS'}
 sentences = LabeledLineSentence(sources)
 
-model = Doc2Vec(min_count=25, window=10, size=64, workers=8)
+model = Doc2Vec(min_count=25, window=10, size=64, workers=8, dm=0, dbow_words=1)
 model.build_vocab(sentences.to_array())
 
 word_model = Word2Vec.load("model/word_model.mod")
@@ -58,7 +58,7 @@ for word in word_model.vocab.keys():
 	model.syn0_lockf[this_index] = 0
 assert np.sum(model.syn0_lockf) == len(model.vocab) - len(word_model.vocab)
 
-for epoch in range(10):
+for epoch in range(5):
     logger.info('Epoch %d' % epoch)
     model.train(sentences.sentences_perm())
 
