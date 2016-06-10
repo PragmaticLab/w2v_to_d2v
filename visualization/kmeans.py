@@ -1,5 +1,5 @@
 from gensim.models import Doc2Vec, Word2Vec
-from sklearn.cluster import AgglomerativeClustering
+from sklearn.cluster import KMeans
 import random
 import numpy as np
 from scipy.spatial.distance import cosine
@@ -17,8 +17,8 @@ doc_vecs = np.array(doc_vecs)
 
 print "Clustering..."
 N_CLUSTERS = 20
-hc = AgglomerativeClustering(affinity="cosine", linkage="average", n_clusters=N_CLUSTERS)
-pred_labels = hc.fit_predict(doc_vecs)
+km = KMeans(n_jobs=-1, n_clusters=N_CLUSTERS, max_iter=500)
+pred_labels = km.fit_predict(doc_vecs)
 
 #### 
 
