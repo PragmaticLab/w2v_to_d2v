@@ -45,7 +45,7 @@ class LabeledLineSentence(object):
     def get_sentence(self, key):
     	return self.mapping[key]
 
-sources = {'data/test-neg.txt':'TEST_NEG', 'data/test-pos.txt':'TEST_POS', 'data/train-neg.txt':'TRAIN_NEG', 'data/train-pos.txt':'TRAIN_POS'}
+sources = {'../data/test-neg.txt':'TEST_NEG', '../data/test-pos.txt':'TEST_POS', '../data/train-neg.txt':'TRAIN_NEG', '../data/train-pos.txt':'TRAIN_POS'}
 
 sentences = LabeledLineSentence(sources)
 
